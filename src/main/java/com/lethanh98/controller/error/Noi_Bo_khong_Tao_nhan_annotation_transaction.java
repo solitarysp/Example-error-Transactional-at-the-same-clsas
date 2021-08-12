@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(value = "/api/Transactional/error/Noi_Bo_khong_Tao_nhan_annotation_transaciton")
+@RequestMapping(value = "/api/Transactional/error/Noi_Bo_khong_Tao_nhan_annotation_transaction")
 @ApiResponsesBase()
 /**
  * Kịch bản demo:
@@ -24,12 +24,15 @@ import org.springframework.web.bind.annotation.RestController;
  * - Tại child4 sẽ throw NullPointerException một lỗi Runtime để roolback
  */
 /**
- * Kết quả : Khi chạy đến child 1 và 3, data vẫn chưa được commit, vì các method này được gọi trong nội bộ class.
+ * Kết quả : Không có data nào được lưu vào database cả.
+ */
+/**
+ * Bởi vì : Khi chạy đến child 1 và 3, data vẫn chưa được commit, vì các method này được gọi trong nội bộ class.
  * Khi gọi nội bộ class thì sẽ không qua proxy vì vậy các @ Transactional sẽ không có tác dụng.
  * Vì vậy tất cả các child 1 đén 4 vẫn cùng 1 transaction.
  * Khi đén child 4 có một Exception xẩy ra, khi đó sẽ roolback tất cả từ child 1 đến 3, vì thế không có dữ liệu nào được lưu
  */
-public class Noi_Bo_khong_Tao_nhan_annotation_transaciton {
+public class Noi_Bo_khong_Tao_nhan_annotation_transaction {
 
     @Autowired
     UserRepo userRepo;
