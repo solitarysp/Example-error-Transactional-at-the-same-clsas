@@ -1,4 +1,4 @@
-package com.lethanh98.controller;
+package com.lethanh98.controller.error;
 
 import com.lethanh98.annotation.ApiResponsesBase;
 import com.lethanh98.entity.User;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/api/Transactional/Khong_Lan_truyen_Transaction")
+@RequestMapping(value = "/api/Transactional/error/Khong_Lan_truyen_Transaction")
 @ApiResponsesBase()
 /**
  * Kịch bản demo:
@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Vì sao : ?
  * - Bởi vì Spring lan truyền transaction thông qua cơ chế proxy, mà để sử dụng proxy thì sẽ cần gọi method thông qua instance.
  * - Tuy nhiên ở method root tức method sẽ được gọi từ bên ngoài thông qua instance lại không khai báo Transactional, nên sẽ không tạo Transactional.
- * - Ở child có khai báo Transactional nhưng ở trường hợp demo thì đang được root gọi nội bộ, vì vậy không thể tạo Transactional, vì gọi nội bộ không qua proxy
+ * - Ở child có khai báo Transactional nhưng ở trường hợp demo thì đang được root method gọi nội bộ, vì vậy không thể tạo Transactional, vì gọi nội bộ không qua proxy
  * - Nếu child được gọi từ bên ngoài thông qua instance thì sẽ đợc tạo transaciton và lan truyền
  */
 /**

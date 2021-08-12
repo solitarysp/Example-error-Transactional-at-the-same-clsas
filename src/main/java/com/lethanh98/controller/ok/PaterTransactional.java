@@ -1,4 +1,4 @@
-package com.lethanh98.controller;
+package com.lethanh98.controller.ok;
 
 
 import com.lethanh98.annotation.ApiResponsesBase;
