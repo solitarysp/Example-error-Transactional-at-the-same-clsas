@@ -4,6 +4,7 @@ package com.lethanh98.controller.ok;
 import com.lethanh98.annotation.ApiResponsesBase;
 import com.lethanh98.entity.User;
 import com.lethanh98.repo.UserRepo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,7 @@ import javax.transaction.Transactional;
  *  Nếu để như hiện tại transaciton sẽ được rollback và không có gì được lưu cả.
  *  Nếu xóa throw NullPointerException là runtime Exception ở child4, sau khi kết thúc method root thì data sẽ được lưu vào database
  */
+@Api(tags = "ok")
 public class Bat_Dau_Transaction_Tu_Root {
 
     @Autowired

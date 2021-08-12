@@ -7,6 +7,7 @@ import com.lethanh98.reponse.ResponseBase;
 import com.lethanh98.reponse.UsersRP;
 import com.lethanh98.reponse.dto.UsersDtoRp;
 import com.lethanh98.request.PostUserRQ;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.Authorization;
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ import org.springframework.web.bind.annotation.RestController;
  * - Bởi vì khi gọi method save chúng ta đang gọi đến method qua một instacne  khác, method đó có khai báo Transactional default
  * - Vì không có Transactional trước đó nên nó sẽ tạo 1 transaciton mới, sau khi thoát method thì transaciton đã được commit rồi.
  */
+@Api(tags = "error")
 public class Khong_Lan_truyen_Transaction {
 
   @Autowired

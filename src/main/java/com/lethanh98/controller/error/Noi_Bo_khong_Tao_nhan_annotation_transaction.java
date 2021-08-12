@@ -4,6 +4,7 @@ package com.lethanh98.controller.error;
 import com.lethanh98.annotation.ApiResponsesBase;
 import com.lethanh98.entity.User;
 import com.lethanh98.repo.UserRepo;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Vì vậy tất cả các child 1 đén 4 vẫn cùng 1 transaction.
  * Khi đén child 4 có một Exception xẩy ra, khi đó sẽ roolback tất cả từ child 1 đến 3, vì thế không có dữ liệu nào được lưu
  */
+@Api(tags = "error")
 public class Noi_Bo_khong_Tao_nhan_annotation_transaction {
 
     @Autowired
